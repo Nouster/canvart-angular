@@ -71,9 +71,3 @@ nav ul.navigationLinks {
   text-transform: capitalize;
   font-weight: 300;
 }
-
-section.banner {
-  background-image: url(../../assets/img/homePictureV1.png);
-  background-repeat: no-repeat;
-  height: 100vh;
-}
