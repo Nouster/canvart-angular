@@ -1,0 +1,5 @@
+div.skeu {
+  border-radius: 15px;
+  box-shadow: -4px -4px 10px #ffffff, 4px 4px 10px rgba(153, 166, 206, 0.3),
+    inset -2px -2px 4px #ffffff, inset 2px 2px 5px rgba(153, 166, 206, 0.3);
+}
