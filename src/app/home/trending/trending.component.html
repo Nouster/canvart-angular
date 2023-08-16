@@ -26,5 +26,27 @@
       />
     </svg>
   </h2>
-  <div class="row"></div>
+  <div class="border p-5 nft-container">
+    <div class="row justify-content-between gy-5 gx-3">
+      <div *ngFor="let nft of nfts" class="card col-md-4 p-0">
+        <div class="card-inner">
+          <div class="card-front d-flex flex-column justify-content-end">
+            <img src="{{ nft.img }}" alt="" />
+          </div>
+          <div class="card-back d-flex flex-column">
+            <h3 class="fs-5">{{ nft.name }}</h3>
+            <span>Artist : {{ nft.creator }}</span>
+          </div>
+        </div>
+        <div class="info p-2">
+          <h3 class="fs-5">{{ nft.name }}</h3>
+          <span class="d-block">Creator : {{ nft.creator }}</span>
+          <span class="d-block">Price : {{ nft.launchPriceEuro }}</span>
+          <div class="pt-5">
+            <a [routerLink]="['/nftDetails', nft.id]"><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

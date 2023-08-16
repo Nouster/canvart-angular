@@ -4,10 +4,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { HomeModule } from './home/home.module';
+import { HttpClientModule } from '@angular/common/http';
+import { NftDetailsModule } from './nft-details/nft-details.module';
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent],
-  imports: [BrowserModule, AppRoutingModule, HomeModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HomeModule,
+    HttpClientModule,
+    NftDetailsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
