@@ -1,1 +1,31 @@
-<p>details works!</p>
+<section class="container canvas">
+  <div *ngIf="nft" class="row justify-content-center">
+    <div class="col-md-6 poster d-flex justify-content-center p-5">
+      <img class="w-100" src="{{ nft.img }}" alt="" />
+    </div>
+    <p class="text-center pt-5"><strong>Artist :</strong> {{ nft.creator }}</p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="d-flex justify-content-center my-5">
+    <svg
+      width="1320"
+      height="6"
+      viewBox="0 0 1262 6"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0.113249 3L3 5.88675L5.88675 3L3 0.113249L0.113249 3ZM1261.89 3L1259 0.113249L1256.11 3L1259 5.88675L1261.89 3ZM3 3.5H1259V2.5H3V3.5Z"
+        fill="black"
+      />
+    </svg>
+  </div>
+  <div *ngIf="nft" class="row info">
+    <h2>{{ nft.name }}</h2>
+    <h3>Description :</h3>
+    <p>{{ nft.description }}</p>
+    <p>{{ nft.user }}</p>
+  </div>
+</section>
