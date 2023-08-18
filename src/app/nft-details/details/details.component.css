@@ -12,3 +12,14 @@ div.poster img {
   height: 70vh;
   border-radius: 20px;
 }
+
+img {
+  transition: transform 0.3s ease; /* Ajustez la durée et le type d'animation selon vos préférences */
+}
+
+#myChart {
+  margin: auto;
+  max-height: 70vh;
+  width: 70vw;
+  max-width: 70vw;
+}
