@@ -7,6 +7,7 @@ import { HomeModule } from './home/home.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NftDetailsModule } from './nft-details/nft-details.module';
 import { NgChartsModule } from 'ng2-charts';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent],
@@ -17,6 +18,7 @@ import { NgChartsModule } from 'ng2-charts';
     HttpClientModule,
     NftDetailsModule,
     NgChartsModule,
+    LoginModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
