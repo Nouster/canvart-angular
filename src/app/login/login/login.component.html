@@ -4,6 +4,12 @@
     [formGroup]="loginForm"
     method="POST"
     class="row justify-content-center"
+    (ngSubmit)="
+      onSubmit({
+        username: emailLogin.value,
+        password: passwordLogin.value
+      })
+    "
   >
     <div class="mb-3 col-md-8">
       <label for="InputEmail" class="form-label">Email address</label>
@@ -30,13 +36,7 @@
         class="form-control"
         id="exampleInputPassword1"
       />
-      <button
-        (click)="consoleDisplay(emailLogin.value, passwordLogin.value)"
-        type="submit"
-        class="col-md-4 mt-5"
-      >
-        Submit
-      </button>
+      <button type="submit" class="col-md-4 mt-5">Submit</button>
     </div>
   </form>
 </section>
