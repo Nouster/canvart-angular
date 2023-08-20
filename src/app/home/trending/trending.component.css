@@ -6,6 +6,7 @@
   box-shadow: -4px -4px 10px #ffffff, 4px 4px 10px rgba(153, 166, 206, 0.3),
     inset -2px -2px 4px #ffffff, inset 2px 2px 5px rgba(153, 166, 206, 0.3);
   display: inline-block;
+  transition: transform 0.3s ease-in-out; /* Ajout de la transition */
 }
 
 .card-inner {
@@ -17,10 +18,14 @@
   transform-style: preserve-3d;
 }
 
-.card:hover .card-inner {
+/* .card:hover .card-inner {
   transform: rotateY(180deg);
-}
+} */
 
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  z-index: 2;
+}
 .card-front,
 .card-back,
 img {
@@ -34,11 +39,11 @@ img {
   border-radius: 20px 20px 0 0;
 }
 
-.card-back {
+/* .card-back {
   background-color: black;
   color: white;
   transform: rotateY(180deg);
-}
+} */
 
 div.nft-container {
   box-shadow: -4px -4px 10px #ffffff, 4px 4px 10px rgba(153, 166, 206, 0.3),

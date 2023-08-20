@@ -9,6 +9,7 @@ import { NftDetailsModule } from './nft-details/nft-details.module';
 import { NgChartsModule } from 'ng2-charts';
 import { LoginModule } from './login/login.module';
 import { AuthorizationInterceptorProvider } from './interceptor/authorization.interceptor';
+import { ExploreModule } from './explore/explore.module';
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent],
@@ -20,6 +21,7 @@ import { AuthorizationInterceptorProvider } from './interceptor/authorization.in
     NftDetailsModule,
     NgChartsModule,
     LoginModule,
+    ExploreModule,
   ],
   providers: [AuthorizationInterceptorProvider],
   bootstrap: [AppComponent],

@@ -1,1 +1,56 @@
-<p>nft works!</p>
+<section class="container">
+  <h1>
+    <svg
+      width="92"
+      height="18"
+      viewBox="0 0 92 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0.839746 8.90088L9.5 17.5611L18.1603 8.90088L9.5 0.240624L0.839746 8.90088ZM9.5 10.4009H91.5V7.40088H9.5V10.4009Z"
+        fill="black"
+      />
+    </svg>
+    Explore
+    <svg
+      width="92"
+      height="18"
+      viewBox="0 0 92 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M91.1603 8.90088L82.5 0.240624L73.8397 8.90088L82.5 17.5611L91.1603 8.90088ZM0.5 10.4009H82.5V7.40088H0.5V10.4009Z"
+        fill="black"
+      />
+    </svg>
+  </h1>
+  <p class="fs-3 pt-3 pb-5">
+    <strong>Discover</strong> & <strong>Collect</strong> Crytpo Art From
+    Established Artist
+  </p>
+  <div class="border p-5 nft-container">
+    <div class="row justify-content-between gy-5 gx-5">
+      <div *ngFor="let nft of nfts" class="card col-md-4 p-0">
+        <div class="card-inner">
+          <div class="card-front d-flex flex-column justify-content-end">
+            <img src="{{ nft.img }}" alt="" />
+          </div>
+          <!-- <div class="card-back d-flex flex-column">
+                <h3 class="fs-5">{{ nft.name }}</h3>
+                <span>Artist : {{ nft.creator }}</span>
+              </div> -->
+        </div>
+        <div class="info p-2">
+          <h3 class="fs-5">{{ nft.name }}</h3>
+          <span class="d-block">Creator : {{ nft.creator }}</span>
+          <span class="d-block">Price : {{ nft.launchPriceEuro }}</span>
+          <div class="pt-5 pb-2">
+            <a [routerLink]="['/nftDetails', nft.id]"><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
