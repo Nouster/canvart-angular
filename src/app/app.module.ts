@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NftDetailsModule } from './nft-details/nft-details.module';
 import { NgChartsModule } from 'ng2-charts';
 import { LoginModule } from './login/login.module';
+import { AuthorizationInterceptorProvider } from './interceptor/authorization.interceptor';
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent],
@@ -20,7 +21,7 @@ import { LoginModule } from './login/login.module';
     NgChartsModule,
     LoginModule,
   ],
-  providers: [],
+  providers: [AuthorizationInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

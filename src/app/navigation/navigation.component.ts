@@ -10,6 +10,10 @@ export class NavigationComponent {
   constructor(private tokenService: TokenService) {}
 
   isLoggedIn(): boolean {
-    return this.tokenService.isLogged();
+    return this.tokenService.getIslogged();
+  }
+
+  disconnected(): void {
+    this.tokenService.destroyToken();
   }
 }
