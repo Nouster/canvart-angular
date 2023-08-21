@@ -14,4 +14,5 @@ export interface INFT {
   categoryNFTs: ICategory;
   creator: string;
   user: IUser;
+  trending: number;
 }

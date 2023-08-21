@@ -12,13 +12,13 @@ export class TrendingComponent implements OnInit {
   constructor(private nftService: NftService) {}
 
   ngOnInit(): void {
-    this.displayNFT();
+    this.displayTrendingNFT();
   }
 
-  displayNFT() {
+  displayTrendingNFT() {
     this.nftService.getAllNFT().subscribe((nft) => {
-      this.nfts = nft['hydra:member'];
-      console.log(this.nfts);
+      const allNFTs = nft['hydra:member'];
+      this.nfts = allNFTs.filter((nft: INFT) => nft.trending > 500).slice(0, 4);
     });
   }
 }

@@ -52,7 +52,7 @@
           <li><a class="dropdown-item" href="#">Topic</a></li>
         </ul>
       </div>
-      <div *ngIf="isLoggedIn(); else connected" class="dropdown">
+      <!-- <div *ngIf="isLoggedIn(); else connected" class="dropdown">
         <a
           (click)="disconnected()"
           class="btn"
@@ -66,7 +66,27 @@
       </div>
       <ng-template #connected>
         <a class="btn" routerLink="/login" role="button"> Login / Sign Up </a>
-      </ng-template>
+      </ng-template> -->
+
+      <div>
+        <a class="btn" role="button" *ngIf="!isLoggedIn()" routerLink="/login"
+          >Log In / Sign Up</a
+        >
+      </div>
+      <div>
+        <a class="btn" role="button" *ngIf="isLoggedIn()"> My Profile </a>
+      </div>
+      <div>
+        <a
+          class="btn"
+          routerLink="/login"
+          role="button"
+          (click)="disconnected()"
+          *ngIf="isLoggedIn()"
+        >
+          Log Out
+        </a>
+      </div>
     </div>
   </nav>
 </header>

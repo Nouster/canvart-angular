@@ -36,8 +36,4 @@ export class TokenService {
     localStorage.removeItem(this.USER_KEY);
     this.logged = false;
   }
-
-  // isLogged(): boolean {
-  //   return !!localStorage.getItem('token');
-  // }
 }

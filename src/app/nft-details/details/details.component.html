@@ -34,10 +34,10 @@
   <div *ngIf="nft" class="row">
     <h3>Details :</h3>
     <div class="info">
-      <p>Catégorie : {{ nft.categoryNFTs }}</p>
+      <p>Category : {{ nft.categoryNFTs.name }}</p>
       <p>Launch date : {{ nft.launchDate }}</p>
       <p>Price : {{ nft.launchPriceEth }} ETH</p>
-      <p>Possesseur : {{ nft.user }}</p>
+      <p>Owner : {{ nft.user.first_name }}</p>
     </div>
   </div>
 </section>
