@@ -1,0 +1,113 @@
+<section class="container">
+  <h1 class="text-center">Welcome to CanvArt</h1>
+  <form [formGroup]="subscribeForm" action="post" (submit)="submit()">
+    <div class="center-container">
+      <div class="input-block">
+        <input
+          type="text"
+          name="firstName"
+          required
+          spellcheck="false"
+          formControlName="firstName"
+        />
+        <span class="placeholder"> Firstname </span>
+      </div>
+      <div class="input-block">
+        <input
+          type="text"
+          name="lastName"
+          required
+          spellcheck="false"
+          formControlName="lastName"
+        />
+        <span class="placeholder"> Lastname </span>
+      </div>
+      <div class="input-block">
+        <input
+          type="email"
+          name="email"
+          required
+          spellcheck="false"
+          formControlName="email"
+        />
+        <span class="placeholder"> Email </span>
+      </div>
+
+      <div class="input-block">
+        <input
+          type="text"
+          name="gender"
+          required
+          spellcheck="false"
+          formControlName="gender"
+        />
+        <span class="placeholder"> Gender </span>
+      </div>
+
+      <div class="input-block">
+        <input
+          type="date"
+          name="birthDate"
+          required
+          spellcheck="false"
+          formControlName="birthDate"
+        />
+      </div>
+
+      <div formGroupName="address">
+        <div class="input-block">
+          <input
+            type="text"
+            name="input-text"
+            required
+            spellcheck="false"
+            formControlName="street"
+          />
+          <span class="placeholder"> Street </span>
+        </div>
+        <div class="input-block">
+          <input
+            type="text"
+            name="zip_code"
+            required
+            spellcheck="false"
+            formControlName="zipCode"
+          />
+          <span class="placeholder"> Zip Code </span>
+        </div>
+        <div class="input-block">
+          <input
+            type="text"
+            name="city"
+            required
+            spellcheck="false"
+            formControlName="city"
+          />
+          <span class="placeholder"> City </span>
+        </div>
+        <div class="input-block">
+          <input
+            type="text"
+            name="country"
+            required
+            spellcheck="false"
+            formControlName="country"
+          />
+          <span class="placeholder"> Country </span>
+        </div>
+      </div>
+      <div class="input-block">
+        <input
+          type="password"
+          name="password"
+          required
+          spellcheck="false"
+          formControlName="password"
+        />
+        <span class="placeholder"> Password </span>
+      </div>
+
+      <button type="submit" class="col-md-5 mt-5">Sign Up And Get Ready</button>
+    </div>
+  </form>
+</section>

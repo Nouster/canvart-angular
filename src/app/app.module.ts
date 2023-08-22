@@ -10,6 +10,8 @@ import { NgChartsModule } from 'ng2-charts';
 import { LoginModule } from './login/login.module';
 import { AuthorizationInterceptorProvider } from './interceptor/authorization.interceptor';
 import { ExploreModule } from './explore/explore.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent],
@@ -22,6 +24,11 @@ import { ExploreModule } from './explore/explore.module';
     NgChartsModule,
     LoginModule,
     ExploreModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right',
+    }),
   ],
   providers: [AuthorizationInterceptorProvider],
   bootstrap: [AppComponent],

@@ -1,9 +1,9 @@
 import { IAddress } from './iaddress';
 
 export interface IUser {
-  id: number;
+  id?: number;
   email: string;
-  role: string[];
+  role?: string[];
   password: string;
   address: IAddress;
   first_name: string;
