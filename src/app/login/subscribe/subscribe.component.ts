@@ -35,11 +35,11 @@ export class SubscribeComponent {
   submit(): void {
     this.userService.addUser(this.subscribeForm).subscribe(
       () => {
-        this.toast.success('Utilisateur créé avec succès');
+        this.toast.success('User added successfully');
         this.router.navigate(['/login']);
       },
       (err) => {
-        this.toast.error('Informations non valides');
+        this.toast.error('Please verify informations');
         console.log(this.subscribeForm.getRawValue());
         console.log('error', err);
       }
