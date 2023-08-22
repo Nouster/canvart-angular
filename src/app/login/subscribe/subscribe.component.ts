@@ -33,17 +33,23 @@ export class SubscribeComponent {
   ) {}
 
   submit(): void {
+    if (this.subscribeForm.invalid) {
+      this.toast.error('Please fill in all required fields.');
+      return;
+    }
     this.userService.addUser(this.subscribeForm).subscribe(
       () => {
         this.toast.success('User added successfully');
         this.router.navigate(['/login']);
       },
       (err) => {
-        this.toast.error('Please verify informations');
-        console.log(this.subscribeForm.getRawValue());
-        console.log('error', err);
+        if (
+          err.error &&
+          err.error.message &&
+          err.error.message.includes('duplicate')
+        )
+          this.toast.error('Please verify informations');
       }
     );
-    console.log(localStorage);
   }
 }
