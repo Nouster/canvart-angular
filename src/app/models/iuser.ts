@@ -6,8 +6,8 @@ export interface IUser {
   role?: string[];
   password: string;
   address: IAddress;
-  first_name: string;
-  last_name: string;
+  firstName: string;
+  lastName: string;
   gender: string;
-  birth_date: Date;
+  birthDate: Date;
 }
