@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { IUser } from 'src/app/models/iuser';
 
 @Injectable({
   providedIn: 'root',

@@ -16,4 +16,11 @@ export class NavigationComponent {
   disconnected(): void {
     this.tokenService.destroyToken();
   }
+
+  canLogin(): boolean {
+    if (localStorage.getItem('token')) {
+      return this.tokenService.checkUserNameAndToken();
+    }
+    return false;
+  }
 }

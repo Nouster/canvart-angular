@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import jwtDecode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',
@@ -35,5 +36,25 @@ export class TokenService {
     localStorage.removeItem('token');
     localStorage.removeItem(this.USER_KEY);
     this.logged = false;
+  }
+
+  decodeToken(token: string): string {
+    const decodeToken: string = jwtDecode(token);
+    return decodeToken;
+  }
+
+  checkUserNameAndToken(): boolean {
+    const token: string | null = this.getToken();
+    const userName = localStorage.getItem(this.USER_KEY);
+
+    if (token !== null && userName !== null) {
+      const decodedToken: any = this.decodeToken(token);
+      if (decodedToken && decodedToken.userName === decodedToken) {
+        return true;
+      }
+    }
+    this.router.navigate(['/login']);
+    this.setIslogged(false);
+    return false;
   }
 }
