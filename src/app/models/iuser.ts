@@ -1,4 +1,5 @@
 import { IAddress } from './iaddress';
+import { INFT } from './inft';
 
 export interface IUser {
   id?: number;
@@ -10,4 +11,5 @@ export interface IUser {
   lastName: string;
   gender: string;
   birthDate: Date;
+  nft?: INFT[];
 }

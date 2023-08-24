@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TokenService } from '../service/Authentication/token.service';
 import { UserService } from '../service/Canvart/user.service';
 import { IUser } from '../models/iuser';
+import { INFT } from '../models/inft';
 
 @Component({
   selector: 'app-navigation',
@@ -9,7 +10,8 @@ import { IUser } from '../models/iuser';
   styleUrls: ['./navigation.component.css'],
 })
 export class NavigationComponent implements OnInit {
-  userConnected: IUser | undefined;
+  userConnected!: IUser | undefined;
+  nfts: INFT[] | undefined;
 
   constructor(
     private tokenService: TokenService,
@@ -23,6 +25,8 @@ export class NavigationComponent implements OnInit {
 
     this.userService.getUserData().subscribe((userData) => {
       this.userConnected = userData;
+      this.nfts = this.userConnected?.nft;
+      console.log(this.userConnected);
     });
   }
 
