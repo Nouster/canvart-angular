@@ -48,7 +48,7 @@ export class SubscribeComponent {
           err.error.message &&
           err.error.message.includes('duplicate')
         )
-          this.toast.error('Please verify informations');
+          this.toast.error('Email already in use');
       }
     );
   }

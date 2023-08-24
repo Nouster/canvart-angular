@@ -44,17 +44,17 @@ export class TokenService {
   }
 
   checkUserNameAndToken(): boolean {
-    const token: string | null = this.getToken();
-    const userName = localStorage.getItem(this.USER_KEY);
+    let token: string | null = this.getToken();
+    const userName: string | null = localStorage.getItem(this.USER_KEY);
 
     if (token !== null && userName !== null) {
-      const decodedToken: any = this.decodeToken(token);
-      if (decodedToken && decodedToken.userName === decodedToken) {
+      let decodedToken: any = this.decodeToken(token);
+      if (decodedToken && decodedToken.userName === userName) {
         return true;
       }
     }
-    this.router.navigate(['/login']);
     this.setIslogged(false);
+    // this.router.navigate(['/login']);
     return false;
   }
 }

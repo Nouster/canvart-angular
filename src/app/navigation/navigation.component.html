@@ -52,21 +52,6 @@
           <li><a class="dropdown-item" href="#">Topic</a></li>
         </ul>
       </div>
-      <!-- <div *ngIf="isLoggedIn(); else connected" class="dropdown">
-        <a
-          (click)="disconnected()"
-          class="btn"
-          routerLink="/login"
-          role="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          Log out
-        </a>
-      </div>
-      <ng-template #connected>
-        <a class="btn" routerLink="/login" role="button"> Login / Sign Up </a>
-      </ng-template> -->
 
       <div>
         <a class="btn" role="button" *ngIf="!isLoggedIn()" routerLink="/login"

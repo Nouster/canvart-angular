@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Ilog } from 'src/app/models/ilog';
 import { AuthenticationService } from 'src/app/service/Authentication/authentication.service';
 import { TokenService } from 'src/app/service/Authentication/token.service';
+import { UserService } from 'src/app/service/Canvart/user.service';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,8 @@ export class LoginComponent {
     private fb: FormBuilder,
     private auth: AuthenticationService,
     private token: TokenService,
-    private toast: ToastrService
+    private toast: ToastrService,
+    private userService: UserService
   ) {}
 
   onSubmit(credentials: Ilog): void {
@@ -30,6 +32,7 @@ export class LoginComponent {
       (data) => {
         this.token.saveToken(data.token);
         this.token.saveUserCredentials(credentials.username);
+        this.userService.getUserData();
         this.toast.success('You are now logged in');
       },
       (error) => {
@@ -38,7 +41,7 @@ export class LoginComponent {
         } else {
           this.toast.error('An error occured. PLease try again later');
         }
-        console.log(error); // You can handle or log the error here
+        console.log(error);
       }
     );
   }
