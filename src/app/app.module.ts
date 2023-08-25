@@ -12,6 +12,7 @@ import { AuthorizationInterceptorProvider } from './interceptor/authorization.in
 import { ExploreModule } from './explore/explore.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { MyProfileModule } from './my-profile/my-profile.module';
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent],
@@ -24,6 +25,7 @@ import { ToastrModule } from 'ngx-toastr';
     NgChartsModule,
     LoginModule,
     ExploreModule,
+    MyProfileModule,
     BrowserModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({

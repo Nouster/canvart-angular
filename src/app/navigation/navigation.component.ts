@@ -23,11 +23,7 @@ export class NavigationComponent implements OnInit {
       this.tokenService.checkUserNameAndToken();
     }
 
-    this.userService.getUserData().subscribe((userData) => {
-      this.userConnected = userData;
-      this.nfts = this.userConnected?.nft;
-      console.log(this.userConnected);
-    });
+    this.userConnected = this.userService.getUserData();
   }
 
   isLoggedIn(): boolean {

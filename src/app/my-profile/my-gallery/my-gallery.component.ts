@@ -1,10 +1,58 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { INFT } from 'src/app/models/inft';
+import { IUser } from 'src/app/models/iuser';
+import { TokenService } from 'src/app/service/Authentication/token.service';
+import { UserService } from 'src/app/service/Canvart/user.service';
+import { CrytpoCompareService } from 'src/app/service/CryptoCompare/crytpo-compare.service';
 
 @Component({
   selector: 'app-my-gallery',
   templateUrl: './my-gallery.component.html',
-  styleUrls: ['./my-gallery.component.css']
+  styleUrls: ['./my-gallery.component.css'],
 })
-export class MyGalleryComponent {
+export class MyGalleryComponent implements OnInit {
+  connectedUser: IUser | undefined;
+  connectedUserNfts: INFT[] = [];
+  excerptedDescriptions: { [key: string]: string } = {};
+  priceEth: any;
 
+  constructor(
+    private userService: UserService,
+    private tokenService: TokenService,
+    private cryptoService: CrytpoCompareService
+  ) {}
+
+  ngOnInit(): void {
+    if (localStorage['token']) {
+      this.tokenService.checkUserNameAndToken();
+    }
+    this.connectedUser = this.userService.getUserData();
+    this.getUserNft();
+    this.getEthConversion();
+    console.log(this.connectedUser);
+  }
+
+  getUserNft() {
+    this.connectedUserNfts = this.connectedUser?.nFT || [];
+    this.connectedUserNfts.forEach((nft) => {
+      this.excerptedDescriptions[nft.id] = this.excerptDescription(
+        nft.description
+      );
+    });
+    console.log(this.connectedUserNfts);
+  }
+
+  excerptDescription(description: string): string {
+    if (description.length > 100) {
+      return description.substring(0, 100) + '...';
+    } else {
+      return description;
+    }
+  }
+
+  getEthConversion() {
+    this.cryptoService.getEthToEuro().subscribe((eth) => {
+      this.priceEth = eth;
+    });
+  }
 }

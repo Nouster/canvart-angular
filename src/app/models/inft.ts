@@ -8,8 +8,8 @@ export interface INFT {
   img: string;
   description: string;
   launchDate: Date;
-  launchPriceEth: Number;
-  launchPriceEuro: Number;
+  launchPriceEth: number;
+  launchPriceEuro: number;
   collectionNFT: ICollectionNFT;
   categoryNFTs: ICategory;
   creator: string;

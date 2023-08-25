@@ -11,5 +11,5 @@ export interface IUser {
   lastName: string;
   gender: string;
   birthDate: Date;
-  nft?: INFT[];
+  nFT?: INFT[];
 }

@@ -6,11 +6,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CrytpoCompareService {
+  ethToEuro = 'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=EUR';
+
   constructor(private http: HttpClient) {}
 
   getEth(): Observable<any> {
     const url =
       'https://min-api.cryptocompare.com/data/v2/histoday?fsym=ETH&tsym=EUR&limit=7';
     return this.http.get(url);
+  }
+
+  getEthToEuro(): Observable<any> {
+    return this.http.get(this.ethToEuro);
   }
 }
