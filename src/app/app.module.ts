@@ -13,9 +13,10 @@ import { ExploreModule } from './explore/explore.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { MyProfileModule } from './my-profile/my-profile.module';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, NavigationComponent],
+  declarations: [AppComponent, NavigationComponent, FooterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

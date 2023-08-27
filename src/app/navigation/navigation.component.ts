@@ -3,6 +3,7 @@ import { TokenService } from '../service/Authentication/token.service';
 import { UserService } from '../service/Canvart/user.service';
 import { IUser } from '../models/iuser';
 import { INFT } from '../models/inft';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-navigation',
@@ -15,7 +16,8 @@ export class NavigationComponent implements OnInit {
 
   constructor(
     private tokenService: TokenService,
-    private userService: UserService
+    private userService: UserService,
+    private toaster: ToastrService
   ) {}
 
   ngOnInit() {
@@ -31,6 +33,7 @@ export class NavigationComponent implements OnInit {
   }
 
   disconnected(): void {
+    this.toaster.error('You have been disconnected');
     this.tokenService.destroyToken();
     this.userConnected = undefined;
   }
