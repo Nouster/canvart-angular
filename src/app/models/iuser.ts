@@ -12,4 +12,6 @@ export interface IUser {
   gender: string;
   birthDate: Date;
   nFT?: INFT[];
+  picture: string;
+  description: string;
 }

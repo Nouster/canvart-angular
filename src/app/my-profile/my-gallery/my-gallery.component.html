@@ -29,6 +29,22 @@
         </svg>
       </h1>
     </div>
+    <div
+      *ngIf="connectedUser"
+      class="d-flex flex-column gap-5 mt-5 align-items-start"
+    >
+      <div class="d-flex align-items-center gap-5">
+        <img class="picture-profile" src="{{ connectedUser.picture }}" alt="" />
+        <span class="fs-3"
+          >@ {{ connectedUser.firstName }} {{ connectedUser.lastName }}</span
+        >
+      </div>
+      <div>
+        <p>
+          {{ connectedUser.description }}
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
