@@ -14,6 +14,7 @@ export class MyGalleryComponent implements OnInit {
   connectedUser: IUser | undefined;
   connectedUserNfts: INFT[] = [];
   excerptedDescriptions: { [key: string]: string } = {};
+  nftNumber: number = 0;
   priceEth: any;
 
   constructor(
@@ -29,7 +30,7 @@ export class MyGalleryComponent implements OnInit {
     this.connectedUser = this.userService.getUserData();
     this.getUserNft();
     this.getEthConversion();
-    console.log(this.connectedUser);
+    this.getTotalNft();
   }
 
   getUserNft() {
@@ -40,6 +41,10 @@ export class MyGalleryComponent implements OnInit {
       );
     });
     console.log(this.connectedUserNfts);
+  }
+
+  getTotalNft(): number {
+    return (this.nftNumber = this.connectedUserNfts.length);
   }
 
   excerptDescription(description: string): string {
