@@ -85,6 +85,7 @@ div.info a {
   text-align: center;
   position: relative;
   transition: all 0.35s;
+  cursor: pointer;
 }
 
 div.info a:hover {

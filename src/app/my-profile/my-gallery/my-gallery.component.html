@@ -78,10 +78,12 @@
             <span class="d-block"
               >Price :
               {{ nft.launchPriceEth }}
-              <strong> ETH</strong></span
+              <strong> ETH {{ nft.id }}</strong></span
             >
             <div class="py-2">
-              <a routerLink="/subscribe"><span>DELETE</span></a>
+              <a (click)="deleteNftAndUpdateNftList(nft.id)" routerLink=""
+                ><span>DELETE</span></a
+              >
             </div>
           </div>
         </div>

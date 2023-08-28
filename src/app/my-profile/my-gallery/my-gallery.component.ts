@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { INFT } from 'src/app/models/inft';
 import { IUser } from 'src/app/models/iuser';
 import { TokenService } from 'src/app/service/Authentication/token.service';
+import { NftService } from 'src/app/service/Canvart/nft.service';
 import { UserService } from 'src/app/service/Canvart/user.service';
 import { CrytpoCompareService } from 'src/app/service/CryptoCompare/crytpo-compare.service';
 
@@ -20,7 +22,9 @@ export class MyGalleryComponent implements OnInit {
   constructor(
     private userService: UserService,
     private tokenService: TokenService,
-    private cryptoService: CrytpoCompareService
+    private cryptoService: CrytpoCompareService,
+    private nftService: NftService,
+    private toastrService: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -28,6 +32,7 @@ export class MyGalleryComponent implements OnInit {
       this.tokenService.checkUserNameAndToken();
     }
     this.connectedUser = this.userService.getUserData();
+    console.log(this.connectedUser?.nFT);
     this.getUserNft();
     this.getEthConversion();
     this.getTotalNft();
@@ -40,7 +45,6 @@ export class MyGalleryComponent implements OnInit {
         nft.description
       );
     });
-    console.log(this.connectedUserNfts);
   }
 
   getTotalNft(): number {
@@ -59,5 +63,21 @@ export class MyGalleryComponent implements OnInit {
     this.cryptoService.getEthToEuro().subscribe((eth) => {
       this.priceEth = eth;
     });
+  }
+
+  deleteNftAndUpdateNftList(id: number) {
+    this.nftService.dropNft(id).subscribe(
+      () => {
+        this.connectedUserNfts = this.connectedUserNfts.filter(
+          (nft) => nft.id !== id
+        );
+        this.toastrService.success('Suppression du Nft réussie');
+        console.log(this.connectedUserNfts.length);
+      },
+      (error) => {
+        this.toastrService.error('Echec de la suppression du Nft');
+        console.error('Error deleting NFT:', error);
+      }
+    );
   }
 }

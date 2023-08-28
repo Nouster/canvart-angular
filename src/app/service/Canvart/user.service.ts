@@ -40,20 +40,4 @@ export class UserService {
     );
     return this.connectedUser;
   }
-
-  // getUserData(): Observable<IUser | undefined> {
-  //   let email: string = localStorage['user_key'];
-  //   return this.getAllUsers().pipe(
-  //     map((response: any) => {
-  //       const users = response['hydra:member'];
-  //       const filteredUsers: IUser[] = this.findUser(users, email);
-  //       this.connectedUser = filteredUsers[0];
-  //       return this.connectedUser;
-  //     }),
-  //     catchError((error) => {
-  //       console.error("Une erreur s'est produite : ", error);
-  //       return of(undefined);
-  //     })
-  //   );
-  // }
 }
