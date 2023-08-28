@@ -44,7 +44,7 @@ export class EditComponent implements OnInit {
     this.nftService.editNft(this.nftId, this.editForm.value).subscribe(
       () => {
         this.toast.success('NFT successfuly updated');
-        this.router.navigate(['/accueil']);
+        this.router.navigate(['/gallery']);
       },
       (err) => {
         if (
