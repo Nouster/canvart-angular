@@ -86,11 +86,7 @@
                 >
               </div>
               <div class="py-2">
-                <a
-                  (click)="deleteNftAndUpdateNftList(nft.id)"
-                  routerLink="/edit"
-                  ><span>EDIT</span></a
-                >
+                <a [routerLink]="['/edit/nft', nft.id]"><span>EDIT</span></a>
               </div>
             </div>
           </div>

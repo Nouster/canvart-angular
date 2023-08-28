@@ -1,29 +1,28 @@
 <section class="container">
-  <h1 class="text-center">Welcome to CanvArt</h1>
-  <form [formGroup]="editForm" action="post" (submit)="submit()">
+  <h1 class="text-center">Edit Your NFT</h1>
+  <form [formGroup]="editForm" action="PATCH" (submit)="submit()">
     <div class="center-container">
       <div class="input-block">
         <input
           type="text"
-          name="firstName"
+          name="name"
           required
           spellcheck="false"
-          formControlName="firstName"
+          formControlName="name"
         />
         <span class="placeholder"> Name for your NFT </span>
       </div>
       <div class="input-block">
         <input
           type="text"
-          name="lastName"
+          name="description"
           required
           spellcheck="false"
-          formControlName="lastName"
+          formControlName="description"
         />
         <span class="placeholder"> Description </span>
       </div>
-
-      <button type="submit" class="col-md-5 mt-5">Sign Up And Get Ready</button>
+      <button type="submit" class="col-md-5 mt-5">Edit your NFT</button>
     </div>
   </form>
 </section>

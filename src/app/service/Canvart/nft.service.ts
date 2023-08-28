@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { INFT } from 'src/app/models/inft';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 
@@ -30,5 +30,22 @@ export class NftService {
         this.nftsSubject.next(updatedNfts);
       })
     );
+  }
+
+  editNft(id: number, updatedData: any): Observable<any> {
+    const headers = new HttpHeaders().set(
+      'Content-Type',
+      'application/merge-patch+json'
+    );
+    return this.http
+      .patch<INFT>(`${this.baseUrl}/${id}`, updatedData, { headers })
+      .pipe(
+        tap(() => {
+          const updatedNfts = this.nftsSubject.value?.map((nft) =>
+            nft.id === id ? { ...nft, ...updatedData } : nft
+          );
+          this.nftsSubject.next(updatedNfts);
+        })
+      );
   }
 }
