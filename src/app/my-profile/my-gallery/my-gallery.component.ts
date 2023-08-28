@@ -71,11 +71,11 @@ export class MyGalleryComponent implements OnInit {
         this.connectedUserNfts = this.connectedUserNfts.filter(
           (nft) => nft.id !== id
         );
-        this.toastrService.success('Suppression du Nft réussie');
+        this.toastrService.success('NFT successfully deleted');
         console.log(this.connectedUserNfts.length);
       },
       (error) => {
-        this.toastrService.error('Echec de la suppression du Nft');
+        this.toastrService.error('Error deleting NFT');
         console.error('Error deleting NFT:', error);
       }
     );

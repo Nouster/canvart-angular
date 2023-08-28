@@ -1,4 +1,4 @@
-<section class="container">
+<section class="container head">
   <div class="row">
     <div>
       <h1 class="text-center text-md-start">
@@ -43,11 +43,10 @@
         <p>
           {{ connectedUser.description }}
         </p>
-        <div>
-          <span class="h4">
-            You have {{ nftNumber }} NFT's in your collection</span
-          >
-        </div>
+
+        <span class="h4">
+          You have {{ nftNumber }} NFT's in your collection</span
+        >
       </div>
     </div>
   </div>
@@ -56,7 +55,7 @@
 <section class="container">
   <div class="row">
     <div class="border p-5 nft-container">
-      <div class="row justify-content-evenly gy-5">
+      <div class="row justify-content-evenly gy-5 gx-3">
         <div *ngFor="let nft of connectedUserNfts" class="card col-md-4 p-0">
           <div class="card-inner">
             <div class="card-front d-flex flex-column justify-content-end">
@@ -78,12 +77,21 @@
             <span class="d-block"
               >Price :
               {{ nft.launchPriceEth }}
-              <strong> ETH {{ nft.id }}</strong></span
+              <strong> ETH </strong></span
             >
-            <div class="py-2">
-              <a (click)="deleteNftAndUpdateNftList(nft.id)" routerLink=""
-                ><span>DELETE</span></a
-              >
+            <div class="d-flex justify-content-between p-3">
+              <div class="py-2">
+                <a (click)="deleteNftAndUpdateNftList(nft.id)" routerLink=""
+                  ><span>DELETE</span></a
+                >
+              </div>
+              <div class="py-2">
+                <a
+                  (click)="deleteNftAndUpdateNftList(nft.id)"
+                  routerLink="/edit"
+                  ><span>EDIT</span></a
+                >
+              </div>
             </div>
           </div>
         </div>
