@@ -5,9 +5,10 @@ import { NgxTypedJsModule } from 'ngx-typed-js';
 import { EditComponent } from './edit/edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
+import { CreateNftComponent } from './create-nft/create-nft.component';
 
 @NgModule({
-  declarations: [MyGalleryComponent, EditComponent],
+  declarations: [MyGalleryComponent, EditComponent, CreateNftComponent],
   imports: [
     CommonModule,
     NgxTypedJsModule,
