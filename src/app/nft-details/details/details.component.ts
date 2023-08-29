@@ -30,6 +30,7 @@ export class DetailsComponent implements OnInit {
       const id = +idParam;
       this.nftDetails.getNft(id).subscribe((nft) => {
         this.nft = nft;
+        console.log('category', nft);
       });
     }
   }

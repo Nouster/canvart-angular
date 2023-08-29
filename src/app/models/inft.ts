@@ -10,8 +10,8 @@ export interface INFT {
   launchDate: Date;
   launchPriceEth: number;
   launchPriceEuro: number;
-  collectionNFT: ICollectionNFT;
-  categoryNFTs: ICategory;
+  collectionNFT: ICollectionNFT[];
+  categoryNFTs: ICategory[];
   creator: string;
   user: IUser;
   trending: number;

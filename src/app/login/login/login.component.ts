@@ -39,7 +39,7 @@ export class LoginComponent {
         if (error.status === 401) {
           this.toast.error('Invalid username or password');
         } else {
-          this.toast.error('An error occured. PLease try again later');
+          this.toast.error('An error occured. Please try again later');
         }
         console.log(error);
       }
