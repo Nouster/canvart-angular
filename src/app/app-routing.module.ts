@@ -7,6 +7,7 @@ import { NftComponent } from './explore/nft/nft.component';
 import { SubscribeComponent } from './login/subscribe/subscribe.component';
 import { MyGalleryComponent } from './my-profile/my-gallery/my-gallery.component';
 import { EditComponent } from './my-profile/edit/edit.component';
+import { CreateNftComponent } from './my-profile/create-nft/create-nft.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'subscribe', component: SubscribeComponent },
   { path: 'gallery', component: MyGalleryComponent },
   { path: 'edit/nft/:id', component: EditComponent },
+  { path: 'create', component: CreateNftComponent },
 ];
 
 @NgModule({

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { INFT } from 'src/app/models/inft';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,6 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 export class NftService {
   baseUrl = 'http://localhost:8000/api/n_f_ts';
   private nftsSubject = new BehaviorSubject<INFT[] | undefined>(undefined);
-  nfts$ = this.nftsSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -47,5 +47,9 @@ export class NftService {
           this.nftsSubject.next(updatedNfts);
         })
       );
+  }
+
+  createNft(newNft: FormGroup): Observable<any> {
+    return this.http.post<INFT>(`${this.baseUrl}`, newNft.getRawValue());
   }
 }

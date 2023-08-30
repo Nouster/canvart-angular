@@ -1,1 +1,101 @@
-<p>create-nft works!</p>
+<section class="container head">
+  <div class="row">
+    <div>
+      <h1 class="text-center text-md-start">
+        <svg
+          width="92"
+          height="18"
+          viewBox="0 0 92 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0.839746 8.90088L9.5 17.5611L18.1603 8.90088L9.5 0.240624L0.839746 8.90088ZM9.5 10.4009H91.5V7.40088H9.5V10.4009Z"
+            fill="black"
+          />
+        </svg>
+        Create Your Own NFT
+        <svg
+          width="92"
+          height="18"
+          viewBox="0 0 92 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M91.1603 8.90088L82.5 0.240624L73.8397 8.90088L82.5 17.5611L91.1603 8.90088ZM0.5 10.4009H82.5V7.40088H0.5V10.4009Z"
+            fill="black"
+          />
+        </svg>
+      </h1>
+    </div>
+  </div>
+  <p class="fs-3 pt-3 pb-5">
+    <strong>Upload</strong> & <strong>Your NFT</strong> And Get Started With
+    Your Creative Journey
+  </p>
+</section>
+
+<section class="container">
+  <form [formGroup]="createForm" action="post" (submit)="submit()">
+    <div class="center-container">
+      <div class="input-block">
+        <input
+          type="text"
+          name="name"
+          required
+          spellcheck="false"
+          formControlName="name"
+        />
+        <span class="placeholder"> A title for your NFT </span>
+      </div>
+      <div class="input-block">
+        <input
+          type="text"
+          name="img"
+          required
+          spellcheck="false"
+          formControlName="img"
+        />
+        <span class="placeholder"> Picture link </span>
+      </div>
+
+      <div class="input-block">
+        <textarea
+          name="description"
+          cols="30"
+          rows="10"
+          required
+          spellcheck="false"
+        ></textarea>
+        <span class="placeholder"> description </span>
+      </div>
+
+      <div class="input-block">
+        <input
+          type="number"
+          name="launchPriceEth"
+          required
+          spellcheck="false"
+          formControlName="launchPriceEth"
+        />
+        <span class="placeholder"> Launch ETH price </span>
+      </div>
+      <div class="input-block">
+        <input type="number" formControlName="launchPriceEuro" />
+        <span class="placeholder">Launch Price (Euro)</span>
+      </div>
+      <div class="input-block">
+        <input
+          type="text"
+          name="creator"
+          required
+          spellcheck="false"
+          formControlName="creator"
+        />
+        <span class="placeholder"> Creator </span>
+      </div>
+      <button type="submit" class="col-md-5 mt-5">Upload yout NFT</button>
+    </div>
+  </form>
+</section>

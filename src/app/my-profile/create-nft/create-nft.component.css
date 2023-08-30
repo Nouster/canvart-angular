@@ -1,0 +1,104 @@
+section.head {
+  margin-top: 200px;
+  margin-bottom: 100px;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+form {
+  margin-bottom: 100px;
+}
+
+section.container {
+  margin-top: 200px;
+}
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+div.input-block {
+  margin-top: 50px;
+  position: relative;
+}
+
+/* Style pour les input qui ne sont pas de type radio */
+/* Style pour les inputs et les textareas qui ne sont pas de type radio */
+div.input-block input:not([type="radio"]),
+div.input-block textarea {
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: #495055;
+  width: 550px;
+  padding: 15px;
+  border-radius: 1rem;
+  border: 1px solid #fff;
+  outline: none;
+  box-shadow: -4px -4px 10px #ffffff, 4px 4px 10px rgba(153, 166, 206, 0.3),
+    inset -2px -2px 4px #ffffff, inset 2px 2px 5px rgba(153, 166, 206, 0.3);
+}
+
+/* Placeholder pour les inputs et les textareas qui ne sont pas de type radio */
+div.input-block input:not([type="radio"]) + span.placeholder,
+div.input-block textarea + span.placeholder {
+  position: absolute;
+  margin: 17px 0;
+  padding: 0 4px;
+  color: #6c757d;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  top: 0;
+  left: 17px;
+  transition: all 0.2s;
+  transform-origin: 0% 0%;
+  background: none;
+  pointer-events: none;
+}
+
+/* Animation du placeholder pour les inputs et les textareas qui ne sont pas de type radio */
+div.input-block input:not([type="radio"]):valid + span.placeholder,
+div.input-block textarea:valid + span.placeholder,
+div.input-block input:not([type="radio"]):focus + span.placeholder,
+div.input-block textarea:focus + span.placeholder {
+  transform: scale(0.8) translateY(-50px);
+  background: #fff;
+}
+
+/* Style spécifique pour les inputs et les textareas de type focus */
+div.input-block input:not([type="radio"]):focus,
+div.input-block textarea:focus {
+  color: black;
+  border-color: black;
+}
+
+div.input-block input:focus + span.placeholder,
+div.input-block textarea:focus + span.placeholder {
+  color: black;
+}
+
+button[type="submit"] {
+  box-shadow: -4px -4px 10px #ffffff, 4px 4px 10px rgba(153, 166, 206, 0.3),
+    inset -2px -2px 4px #ffffff, inset 2px 2px 5px rgba(153, 166, 206, 0.3) !important;
+  border-radius: 10px;
+  border: none;
+  background-color: #ffffff;
+  padding: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+button[type="submit"]:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+  background-color: black;
+  color: white;
+}
