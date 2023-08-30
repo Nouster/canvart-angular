@@ -13,19 +13,20 @@ import { CrytpoCompareService } from 'src/app/service/CryptoCompare/crytpo-compa
 })
 export class CreateNftComponent implements OnInit {
   user: IUser = this.userConnected.getUserData();
+  userId: number = this.user.id!;
   currentDate = new Date().toISOString().substr(0, 10);
   ethValue!: number;
 
   createForm = this.fb.group({
     name: ['', Validators.required],
     img: ['', Validators.required],
-    description: ['', Validators.email],
+    description: ['', Validators.required],
     launchDate: [this.currentDate],
     launchPriceEth: [0.0, Validators.required],
     launchPriceEuro: [0.0, Validators.required],
     collectionNFT: ['http://localhost:8000/api/collection_n_f_ts/12'],
     categoryNFTs: [1],
-    user: ['', Validators.required],
+    user: [`http://localhost:8000/api/users/${this.user.id}`],
     creator: ['', Validators.required],
     trending: [0],
   });
@@ -41,7 +42,8 @@ export class CreateNftComponent implements OnInit {
   ngOnInit() {
     this.userConnected.getUserData1().subscribe(
       (user) => {
-        this.user = user;
+        this.userId = user.id!;
+        console.log(this.user);
         // const userId = this.user.id ?? 0; // Utilisation de nullish coalescing
       },
       (error) => {
@@ -52,8 +54,6 @@ export class CreateNftComponent implements OnInit {
   }
 
   submit(): void {
-    const UserIri: string = 'http://localhost:8000/api/users/${this.user.id}';
-    this.createForm.get('user')?.setValue(UserIri);
     if (this.createForm.invalid) {
       this.toast.error('Please fill in all required fields.');
       return;
