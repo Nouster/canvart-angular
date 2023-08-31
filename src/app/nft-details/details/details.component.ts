@@ -30,7 +30,7 @@ export class DetailsComponent implements OnInit {
       const id = +idParam;
       this.nftDetails.getNft(id).subscribe((nft) => {
         this.nft = nft;
-        console.log('category', nft);
+        console.log('toto', nft);
       });
     }
   }
@@ -65,6 +65,9 @@ export class DetailsComponent implements OnInit {
                   data: prices,
                   label: 'ETH',
                   borderColor: '#000000',
+                  pointBackgroundColor: '#375A7F',
+                  pointRadius: 7,
+                  cubicInterpolationMode: 'monotone',
                   backgroundColor: '#eaeaea',
                   fill: false,
                 },

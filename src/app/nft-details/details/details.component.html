@@ -26,7 +26,7 @@
     <h2 class="text-center">{{ nft.name }}</h2>
     <h3>Description :</h3>
     <p>{{ nft.description }}</p>
-    <p>{{ nft.user }}</p>
+    <p><strong>Creator :</strong> {{ nft.creator }}</p>
   </div>
 </section>
 
@@ -34,10 +34,15 @@
   <div *ngIf="nft" class="row">
     <h3>Details :</h3>
     <div class="info">
-      <p>Category :</p>
-      <p>Launch date : {{ nft.launchDate }}</p>
-      <p>Price : {{ nft.launchPriceEth }} ETH</p>
-      <p>Owner : {{ nft.user.firstName }}</p>
+      <p><strong>Categories :</strong></p>
+      <ul class="d-flex gap-5">
+        <li *ngFor="let category of nft.categoryNFTs">
+          {{ category.name }}
+        </li>
+      </ul>
+      <p><strong>Launch date :</strong> {{ nft.launchDate }}</p>
+      <p><strong>Price :</strong> {{ nft.launchPriceEth }} ETH</p>
+      <p><strong>Owner :</strong> {{ nft.user.firstName }}</p>
     </div>
   </div>
 </section>
