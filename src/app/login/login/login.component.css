@@ -11,7 +11,18 @@ button[type="submit"] {
 }
 
 button[type="submit"] {
+  box-shadow: -4px -4px 10px #ffffff, 4px 4px 10px rgba(153, 166, 206, 0.3),
+    inset -2px -2px 4px #ffffff, inset 2px 2px 5px rgba(153, 166, 206, 0.3) !important;
+  border-radius: 10px;
   border: none;
   background-color: #ffffff;
-  padding: 5px;
+  padding: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+button[type="submit"]:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+  background-color: black;
+  color: white;
 }

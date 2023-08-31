@@ -10,7 +10,7 @@ form {
   margin-bottom: 100px;
 }
 
-section.container {
+section.head {
   margin-top: 200px;
 }
 
@@ -81,6 +81,14 @@ button[type="submit"] {
   border: none;
   background-color: #ffffff;
   padding: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+button[type="submit"]:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+  background-color: black;
+  color: white;
 }
 
 div > input[type="radio"] {
