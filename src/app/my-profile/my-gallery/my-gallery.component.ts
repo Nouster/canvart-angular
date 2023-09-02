@@ -32,7 +32,6 @@ export class MyGalleryComponent implements OnInit {
       this.tokenService.checkUserNameAndToken();
     }
     this.connectedUser = this.userService.getUserData();
-    console.log(this.connectedUser?.nFT);
     this.getUserNft();
     this.getEthConversion();
     this.getTotalNft();

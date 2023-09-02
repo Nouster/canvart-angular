@@ -1,7 +1,14 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Observable, catchError, map, throwError } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  catchError,
+  map,
+  tap,
+  throwError,
+} from 'rxjs';
 import { IUser } from 'src/app/models/iuser';
 
 @Injectable({
@@ -10,6 +17,7 @@ import { IUser } from 'src/app/models/iuser';
 export class UserService {
   connectedUser?: IUser;
   private baseUrl = 'http://127.0.0.1:8000/api/users';
+  private UserSubject = new BehaviorSubject<IUser[] | undefined>(undefined);
 
   constructor(private http: HttpClient) {}
 
@@ -54,5 +62,23 @@ export class UserService {
         return throwError(error);
       })
     );
+  }
+
+  editProfil(id: number, formData: FormGroup): Observable<any> {
+    const headers = new HttpHeaders().set(
+      'Content-Type',
+      'application/merge-patch+json'
+    );
+
+    return this.http
+      .patch<IUser>(`${this.baseUrl}/${id}`, formData, { headers })
+      .pipe(
+        tap(() => {
+          const updatedUser = this.UserSubject.value?.map((user) =>
+            user.id === id ? { ...user, ...formData } : user
+          );
+          this.UserSubject.next(updatedUser);
+        })
+      );
   }
 }
