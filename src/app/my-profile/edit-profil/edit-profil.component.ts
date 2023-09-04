@@ -13,17 +13,6 @@ export class EditProfilComponent implements OnInit {
   user!: IUser;
   editProfilForm = this.fb.group({
     firstName: ['', Validators.required],
-    lastName: [this.user?.lastName],
-    email: [this.user?.email],
-    gender: [this.user?.gender],
-    password: [this.user?.password],
-    birthDate: [this.user?.birthDate],
-    address: this.fb.group({
-      street: [this.user?.address.street],
-      zipCode: [this.user?.address.zipCode],
-      city: [this.user?.address.city],
-      country: [this.user?.address.country],
-    }),
   });
 
   constructor(
@@ -47,10 +36,20 @@ export class EditProfilComponent implements OnInit {
   }
 
   updateProfile() {
+    console.log('this.user : ', this.user);
+    console.log('this.editProfilForm : ', this.editProfilForm);
     this.userService
       .editProfil(this.user!.id!, this.editProfilForm)
       .subscribe(() => {
-        this.toast.success('Your profile has been updated');
+        this.toast.success('Your profil has been updated');
       });
   }
+
+  // defaultInputValue() {
+
+  //   if (this.editProfilForm.value.firstName === null) {
+  //     this.editProfilForm.get('firstName')?.setValue(this.user?.firstName);
+  //   }
+
+  // }
 }

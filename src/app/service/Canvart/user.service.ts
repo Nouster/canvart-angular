@@ -69,11 +69,12 @@ export class UserService {
       'Content-Type',
       'application/merge-patch+json'
     );
-
+    console.log('envoi de la request', formData);
     return this.http
-      .patch<IUser>(`${this.baseUrl}/${id}`, formData, { headers })
+      .patch<IUser>(`${this.baseUrl}/${id}`, formData.value, { headers })
       .pipe(
         tap(() => {
+          console.log('usersubject value :', this.UserSubject.value);
           const updatedUser = this.UserSubject.value?.map((user) =>
             user.id === id ? { ...user, ...formData } : user
           );
