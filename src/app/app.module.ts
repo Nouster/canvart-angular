@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { MyProfileModule } from './my-profile/my-profile.module';
 import { FooterComponent } from './footer/footer.component';
+import { CollectionModule } from './collection/collection.module';
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent, FooterComponent],
@@ -28,6 +29,7 @@ import { FooterComponent } from './footer/footer.component';
     ExploreModule,
     MyProfileModule,
     BrowserModule,
+    CollectionModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',

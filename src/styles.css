@@ -3,6 +3,10 @@
 
 @import "ngx-toastr/toastr";
 
+body {
+  font-family: "Be Vietnam Pro";
+}
+
 h1,
 h2,
 h3,

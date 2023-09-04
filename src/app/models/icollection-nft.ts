@@ -1,4 +1,7 @@
+import { INFT } from './inft';
+
 export interface ICollectionNFT {
-  id: number;
+  id?: number;
   name: string;
+  NFT: INFT[];
 }
