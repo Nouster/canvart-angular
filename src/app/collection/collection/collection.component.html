@@ -43,9 +43,18 @@
     }"
   >
     <div class="blur p-5">
-      <h2 class="text-center text-light my-5 fs-1">
-        <strong>Featured :</strong> {{ collection.name }}
-      </h2>
+      <div
+        class="d-flex justify-content-start align-items-center collectionInfo"
+      >
+        <img
+          class="collectionLogo"
+          src="../../../assets/img/iconLogo.png"
+          alt=""
+        />
+        <h2 class="text-light my-5 fs-5">
+          <strong>Featured :</strong> {{ collection.name }}
+        </h2>
+      </div>
       <div class="row justify-content-around gy-5 gx-5">
         <div *ngFor="let nft of collection.NFT" class="card col-md-4 p-0">
           <div class="card-inner">
