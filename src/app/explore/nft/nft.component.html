@@ -32,7 +32,13 @@
   </p>
   <div class="border p-5 nft-container">
     <div class="row justify-content-between gy-5 gx-5">
-      <div *ngFor="let nft of nfts" class="card col-md-4 p-0">
+      <div
+        class="d-flex justify-content-center"
+        *ngIf="filteredNft.length === 0"
+      >
+        <p class="h1">NFT not found</p>
+      </div>
+      <div *ngFor="let nft of filteredNft" class="card col-md-4 p-0">
         <div class="card-inner">
           <div class="card-front d-flex flex-column justify-content-end">
             <img src="{{ nft.img }}" alt="" />

@@ -4,6 +4,7 @@ import { UserService } from '../service/Canvart/user.service';
 import { IUser } from '../models/iuser';
 import { INFT } from '../models/inft';
 import { ToastrService } from 'ngx-toastr';
+import { SearchServiceService } from '../service/SearchService/search-service.service';
 
 @Component({
   selector: 'app-navigation',
@@ -13,11 +14,13 @@ import { ToastrService } from 'ngx-toastr';
 export class NavigationComponent implements OnInit {
   userConnected!: IUser | undefined;
   nfts: INFT[] | undefined;
+  searchTerm: string = '';
 
   constructor(
     private tokenService: TokenService,
     private userService: UserService,
-    private toaster: ToastrService
+    private toaster: ToastrService,
+    private searchService: SearchServiceService
   ) {}
 
   ngOnInit() {
@@ -43,5 +46,9 @@ export class NavigationComponent implements OnInit {
       return this.tokenService.checkUserNameAndToken();
     }
     return false;
+  }
+
+  onSearch(term: string) {
+    this.searchService.changeSearchTerm(term);
   }
 }

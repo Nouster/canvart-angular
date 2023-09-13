@@ -12,6 +12,8 @@
         id=""
         name=""
         placeholder="Search NFTs, artists & collections"
+        [(ngModel)]="searchTerm"
+        (keyup.enter)="onSearch(searchTerm)"
       />
     </div>
     <div class="d-flex align-items-center gap-2">

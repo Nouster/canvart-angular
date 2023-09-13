@@ -15,6 +15,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { MyProfileModule } from './my-profile/my-profile.module';
 import { FooterComponent } from './footer/footer.component';
 import { CollectionModule } from './collection/collection.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent, FooterComponent],
@@ -29,6 +30,7 @@ import { CollectionModule } from './collection/collection.module';
     ExploreModule,
     MyProfileModule,
     BrowserModule,
+    FormsModule,
     CollectionModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
